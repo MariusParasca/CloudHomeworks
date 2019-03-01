@@ -78,7 +78,7 @@ function handleApiRequest(queryData, req, res, html) {
     promise.then(printPromiseData).catch(printPromiseError);
     promisesArray.push(promise);
 
-    var optionsget = { headers: { 'X-RapidAPI-Key': '5c9305367bmsh31063ebe045f5ddp16b640jsn31bc0731b843' } };
+    var optionsget = { headers: { 'X-RapidAPI-Key': '' } };
     promise = new Promise((resolve, reject) => {
         var start = new Date();
         https.get("https://pozzad-email-validator.p.rapidapi.com/emailvalidator/validateEmail/" + encodeURIComponent(queryData['email']),
