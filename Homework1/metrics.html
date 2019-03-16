@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Metrics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <style>
+        #id {
+            width: 600px;
+            height: 600px;
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+        #main {
+            display: flex;
+            justify-content: center;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- <h1>My API time response over 500 requests</h1>
+    <div id="main">
+        <div id="id">
+            <canvas id="myChart_1" width="400" height="400"></canvas>
+        </div>
+        <div id="id">
+            <canvas id="myChart0" width="400" height="400"></canvas>
+        </div>
+    </div> -->
+    <h1>Email Validator time response over 500 requests</h1>
+    <div id="main">
+        <div id="id">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div id="id">
+            <canvas id="myChart2" width="400" height="400"></canvas>
+        </div>
+    </div>
+    <h1>Country information api time response over 500 requests</h1>
+    <div id="main">
+        <div id="id">
+            <canvas id="myChart3" width="400" height="400"></canvas>
+        </div>
+        <div id="id">
+            <canvas id="myChart4" width="400" height="400"></canvas>
+        </div>
+    </div>
+   <script>
+        // var ctx_1 = document.getElementById("myChart0").getContext('2d');
+        // var ctx0 = document.getElementById("myChart0").getContext('2d');
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var ctx2 = document.getElementById("myChart2").getContext('2d');
+        var ctx3 = document.getElementById("myChart3").getContext('2d');
+        var ctx4 = document.getElementById("myChart4").getContext('2d');
+        drawLineChart([6893, 11617, 11356, 13296, 13954, 15153, 16819, 16956, 17500, 17658, 17909, 17253, 18078, 18614, 19125, 19687, 23328, 26731, 27133, 27412, 28987], ctx);
+        drawBarChart([21, 104, 262, 15, 98], ctx2);
+        drawLineChart([6097, 6966, 7641, 9872, 11324, 11959, 12860, 13790, 13809, 15420, 15573, 16499, 17446, 17761, 18707, 18815, 22236, 21742], ctx3);
+        drawBarChart([77, 130, 174, 25, 0], ctx4);
+        function drawLineChart(dataArray, ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [1, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500],
+                    datasets: [{
+                        label: '# ms per request',
+                        data: dataArray,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        function drawBarChart(dataArray, ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [[0, 10000], [10000, 15000], [15000, 20000], [20000, 25000], [25000, 30000]],
+                    datasets: [{
+                        label: '# of requests in that time inverval (ms)',
+                        data: dataArray,
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
